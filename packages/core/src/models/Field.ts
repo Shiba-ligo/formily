@@ -274,6 +274,7 @@ export class Field<
         }
       )
     )
+    // notes: 这儿是重点，既声明了reaction，也可以挂一个发布订阅的订阅器
     createReactions(this)
   }
 

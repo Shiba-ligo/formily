@@ -7,6 +7,7 @@ import { createEffectHook } from '../shared/effective'
 function createFormEffect(type: LifeCycleTypes) {
   return createEffectHook(
     type,
+    // 通过闭包，前一个函数传入发布订阅的payLoad，后一个函数触发包含payload的回调
     (form: Form) => (callback: (form: Form) => void) => {
       batch(() => {
         callback(form)

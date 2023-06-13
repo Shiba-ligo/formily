@@ -26,6 +26,7 @@ const useBasePath = (props: IRecursionFieldProps) => {
 }
 
 export const RecursionField: ReactFC<IRecursionFieldProps> = (props) => {
+  console.log('ligo RecursionField')
   const basePath = useBasePath(props)
   const fieldSchema = useMemo(() => new Schema(props.schema), [props.schema])
   const fieldProps = useFieldProps(fieldSchema)

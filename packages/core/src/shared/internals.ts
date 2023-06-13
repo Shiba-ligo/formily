@@ -1048,6 +1048,7 @@ export const allowAssignDefaultValue = (target: any, source: any) => {
 }
 
 export const createReactions = (field: GeneralField) => {
+  console.log('createReactions')
   const reactions = toArr(field.props.reactions)
   field.form.addEffects(field, () => {
     reactions.forEach((reaction) => {

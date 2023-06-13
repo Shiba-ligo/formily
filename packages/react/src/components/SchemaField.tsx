@@ -33,6 +33,7 @@ export function createSchemaField<Components extends SchemaReactComponents>(
     Decorator extends JSXComponent,
     Component extends JSXComponent
   >(props: ISchemaFieldProps<Decorator, Component>) {
+    console.log('hi')
     const schema = Schema.isSchemaInstance(props.schema)
       ? props.schema
       : new Schema({

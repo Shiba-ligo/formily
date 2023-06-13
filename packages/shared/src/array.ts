@@ -42,6 +42,7 @@ export function each<T>(
   iterator: EachArrayIterator<T>,
   revert?: boolean
 ): void
+// note: 函数overload类型怎么写？ 这里的T[keyof T] 是个什么类型
 export function each<T extends {}, TValue extends T[keyof T]>(
   val: T,
   iterator: EachObjectIterator<TValue>,

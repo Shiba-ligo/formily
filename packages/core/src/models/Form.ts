@@ -107,7 +107,10 @@ export class Form<ValueType extends object = any> {
     this.readPretty = this.props.readPretty
     this.visible = this.props.visible
     this.hidden = this.props.hidden
+    // note: 下面这个是干嘛？
     this.graph = new Graph(this)
+    // note: 这个是配置了form的发布订阅系统，以及form的hook：lifecycle，lifecycle就是
+    // 特殊的发布订阅，但是api非常的奇怪，很难看明白
     this.heart = new Heart({
       lifecycles: this.lifecycles,
       context: this,
@@ -604,7 +607,9 @@ export class Form<ValueType extends object = any> {
     return batchValidate(this, pattern)
   }
 
-  submit = <T>(onSubmit?: (values: ValueType) => Promise<T> | void): Promise<T> => {
+  submit = <T>(
+    onSubmit?: (values: ValueType) => Promise<T> | void
+  ): Promise<T> => {
     return batchSubmit(this, onSubmit)
   }
 

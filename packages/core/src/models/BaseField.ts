@@ -301,6 +301,9 @@ export class BaseField<Decorator = any, Component = any, TextType = any> {
 
   onInit = () => {
     this.initialized = true
+    // note： 这里看起来是在field挂载前就有了很多setState的callback
+    // 在挂载的时候拿出来调用
+    // 比如setFieldState, 如果字段找不到，setFieldState会将更新推入更新队列，直到字段出现再执行操作
     initFieldUpdate(this as any)
     this.notify(LifeCycleTypes.ON_FIELD_INIT)
   }
